@@ -29,3 +29,7 @@ h2 {
 #option {
   color: black;
 }
+
+.carousel{
+  min-width: 50px;
+}

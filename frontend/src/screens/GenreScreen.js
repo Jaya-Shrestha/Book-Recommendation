@@ -9,7 +9,7 @@ import Message from '../components/Message'
 import { Link } from 'react-router-dom'
 import Paginate from '../components/Paginate'
 
-const HomeScreen = ({history}) => {
+const GenreScreen = ({history}) => {
   const dispatch = useDispatch()
 
   const bookList = useSelector(state=>state.bookList)
@@ -19,24 +19,10 @@ const HomeScreen = ({history}) => {
   useEffect(() => {
     dispatch(listBooks(keyword))
   }, [dispatch, keyword])
-  
+
   return (
-    <>
-            <Carousel>
-                <div className='carousel'>
-                    <img src="images/fairy-tales.jpg" alt='text'/>
-                    <p className="legend">Legend 1</p>
-                </div>
-                <div>
-                    <img src="images/fairy-tales.jpg" alt='text' />
-                    <p className="legend">Legend 2</p>
-                </div>
-                <div>
-                    <img src="images/fairy-tales.jpg" alt='text'/>
-                    <p className="legend">Legend 3</p>
-                </div>
-            </Carousel>
-      <h1>Latest Books</h1> 
+    <div>
+      <h1>Categorized Books</h1> 
       {loading ? <Loader /> : error ? <Message variant='danger'>{error} </Message> :
         <div>
           <Row>
@@ -53,9 +39,8 @@ const HomeScreen = ({history}) => {
           <Paginate page={page} pages={ pages} keyword={keyword} />
         </div>
       }
-      
-    </>
+    </div>
   )
 }
 
-export default HomeScreen
+export default GenreScreen
